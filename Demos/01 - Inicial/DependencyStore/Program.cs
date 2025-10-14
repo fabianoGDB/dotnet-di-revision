@@ -12,9 +12,8 @@ var app = builder.Build();
 
 builder.Services.AddSingleton<Configuration>();
 builder.Services.AddScoped(x => new SqlConnection("CONN_STR"));
-builder.Services.AddTransient<ICostumerRepository, CostumerRepository>();
-builder.Services.AddTransient<IPromoCodeRepository, PromoCodeRepository>();
-builder.Services.AddTransient<IDeliveryFeeService, DeliveryFeeService>();
+builder.Services.AddRepositories();
+builder.Services.AddServices();
 builder.Services.AddControllers();
 
 app.MapControllers();
