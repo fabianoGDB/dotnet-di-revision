@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 var app = builder.Build();
 
 builder.Services.AddSingleton<Configuration>();
-builder.Services.AddScoped(x => new SqlConnection("CONN_STR"));
+builder.Services.AddSqlConnection(builder.Configuration.GetConnectionString("Default"));
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddControllers();
